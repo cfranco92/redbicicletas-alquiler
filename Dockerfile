@@ -1,7 +1,7 @@
 FROM golang as builder
-RUN go get github.com/centraldelbarbero/redbicicletas-bicicletas
+RUN go get github.com/cfranco92/redbicicletas-alquiler
 
-FROM node:14.17.6
+FROM node:14-stretch-slim
 
 # Create app directory
 RUN mkdir /app
@@ -20,7 +20,7 @@ RUN npm install
 COPY . /app/
 
 ENV NODE_ENV QA
-ENV PORT 8080
+ENV PORT 8081
 
 EXPOSE 8081
 
